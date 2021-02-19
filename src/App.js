@@ -1,11 +1,37 @@
 import "./App.css";
+import Card from "./Card";
+import fetchHarryPotterCards from "./services/fetchHarryPotterCards";
 
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 function App() {
-  return <div></div>;
+  const [hogwartsCards, setHogwartsCards] = useState([]);
+
+  useEffect(() => {
+    fetchHarryPotterCards().then((items) => {
+      const itemsFetchedFromAPI = items.map((item) => ({
+        name: item.name,
+        house: item.house,
+        bild: item.image,
+      }));
+      setHogwartsCards(itemsFetchedFromAPI);
+    });
+  }, []);
+
+  return (
+    <div>
+      {hogwartsCards.map((card) => (
+        <Card
+          name="Harry Potter"
+          house="Gryffindor"
+          bild="http://hp-api.herokuapp.com/images/harry.jpg"
+        />
+      ))}
+    </div>
+  );
 }
 
 export default App;
