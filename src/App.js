@@ -24,11 +24,7 @@ function App() {
   return (
     <div>
       {hogwartsCards.map((card) => (
-        <Card
-          name="Harry Potter"
-          house="Gryffindor"
-          bild="http://hp-api.herokuapp.com/images/harry.jpg"
-        />
+        <Card name={card.name} house={card.house} bild={card.bild} />
       ))}
     </div>
   );
