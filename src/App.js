@@ -16,6 +16,9 @@ function App() {
         name: item.name,
         house: item.house,
         bild: item.image,
+        birthday: item.dateOfBirth,
+        eyes: item.eyeColour,
+        patronus: item.patronus,
       }));
       setHogwartsCards(itemsFetchedFromAPI);
     });
@@ -24,7 +27,14 @@ function App() {
   return (
     <div>
       {hogwartsCards.map((card) => (
-        <Card name={card.name} house={card.house} bild={card.bild} />
+        <Card
+          name={card.name}
+          house={card.house}
+          bild={card.bild}
+          birthday={card.birthday}
+          eyes={card.eyes}
+          patronus={card.patronus}
+        />
       ))}
     </div>
   );
