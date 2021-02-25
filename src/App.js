@@ -1,13 +1,17 @@
-import "./App.css";
-import Card from "./components/Card";
-import fetchHarryPotterCards from "./services/fetchHarryPotterCards";
+import './App.css';
+import Card from './components/Card';
+import fetchHarryPotterCards from './services/fetchHarryPotterCards';
 
-import { useEffect, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-import styled from "styled-components";
-import PropTypes from "prop-types";
+import { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import HeaderNav from './HeaderNav';
+import Houses from './Houses';
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
+  const Home = () => <h1>Home</h1>;
   const [hogwartsCards, setHogwartsCards] = useState([]);
 
   useEffect(() => {
@@ -26,6 +30,18 @@ function App() {
 
   return (
     <div>
+      <HeaderNav />
+      <main>
+        <switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/Houses">
+            <Houses />
+          </Route>
+        </switch>
+      </main>
+
       {hogwartsCards.map((card) => (
         <Card
           name={card.name}
