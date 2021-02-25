@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import HeaderNav from './HeaderNav';
-import Houses from './Houses';
+import Houses from './pages/Houses';
 import { Route, Switch } from 'react-router-dom';
 
 function App() {

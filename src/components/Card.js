@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import "../Card.css";
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import '../Card.css';
 
 export default function Card({ name, house, bild, birthday, eyes, patronus }) {
   return (
@@ -18,3 +19,9 @@ export default function Card({ name, house, bild, birthday, eyes, patronus }) {
     </div>
   );
 }
+
+Card.propTypes = {
+  name: PropTypes.arrayOf(PropTypes.string),
+  house: PropTypes.arrayOf(PropTypes.string),
+  birthday: PropTypes.arrayOf(PropTypes.string),
+};
