@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import "./Card.css";
+import "../Card.css";
 
 export default function Card({ name, house, bild, birthday, eyes, patronus }) {
   return (
