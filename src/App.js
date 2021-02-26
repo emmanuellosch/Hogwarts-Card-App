@@ -37,7 +37,7 @@ function App() {
             <Home />
           </Route>
           <Route path="/Houses">
-            <Houses />
+            <Houses cards={hogwartsCards} />
           </Route>
         </switch>
       </main>

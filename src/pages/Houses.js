@@ -8,29 +8,8 @@ import {
   useRouteMatch,
 } from 'react-router-dom';
 import Card from '../components/Card';
-import { useEffect, useState } from 'react';
-import fetchHarryPotterCards from '../services/fetchHarryPotterCards';
-
-export default function Houses() {
-  /* const [houseCharacters, setHouseCharacters] = useState([]);
-
-  useEffect(() => {
-    fetchHarryPotterCards().then((items) => {
-      const itemsFetchedFromAPI = items.map((item) => ({
-        name: item.name,
-        house: item.house,
-        bild: item.image,
-        birthday: item.dateOfBirth,
-        eyes: item.eyeColour,
-        patronus: item.patronus,
-      }));
-      setHouseCharacters(itemsFetchedFromAPI);
-    });
-  }, []);
- */
+export default function Houses({ cards }) {
   let { url, path } = useRouteMatch();
-  //console.log(houseCharacters);
-  //const FilterTest = HouseFilter(houseCharacters);
   return (
     <div>
       <h1>Houses</h1>
@@ -40,43 +19,37 @@ export default function Houses() {
         <NavLink to={url + '/Gryiffindor'}>Gryffindor</NavLink>
         <NavLink to={url + '/Hufflepuff'}>Hufflepuff</NavLink>
       </nav>
-
       <switch>
         <Route exact path={path}>
           <h3>Please choose a house!</h3>
         </Route>
         <Route path={url + '/:houseName'}>
-          <House />
-          {/* {houseCharacters.map((card) => (
-            <Card
-              name={card.name}
-              house={card.house}
-              bild={card.bild}
-              birthday={card.birthday}
-              eyes={card.eyes}
-              patronus={card.patronus}
-            />
-          ))} */}
+          <House cards={cards} />
         </Route>
       </switch>
     </div>
   );
-  function House() {
-    const { houseName } = useParams();
-    return (
-      <div>
-        <h2>This is your house:</h2>
-        <h3>{houseName}</h3>
-      </div>
-    );
-  }
-  /* function HouseFilter({ houseCharacters }) {
-    const { houseName } = useParams();
-
-    return houseCharacters.filter((card) => card.house == { houseName });
-  } */
 }
-
+function House({ cards }) {
+  const { houseName } = useParams();
+  const filtered = cards.filter((card) => card.house === houseName);
+  return (
+    <div>
+      <h2>This is your house:</h2>
+      <h3>{houseName}</h3>
+      {filtered.map((card) => (
+        <Card
+          name={card.name}
+          house={card.house}
+          bild={card.bild}
+          birthday={card.birthday}
+          eyes={card.eyes}
+          patronus={card.patronus}
+        />
+      ))}
+    </div>
+  );
+}
 /* const NavLinkStyled = styled.NavLink`
   background-color: hotpink;
 `;
