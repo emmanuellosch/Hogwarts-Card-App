@@ -16,7 +16,7 @@ export default function Houses({ cards }) {
       <nav>
         <NavLinkStyled to={url + '/Ravenclaw'}>Ravenclaw</NavLinkStyled>
         <NavLinkStyled to={url + '/Slytherin'}>Slytherin</NavLinkStyled>
-        <NavLinkStyled to={url + '/Gryffindor'}>Gryffindor</NavLinkStyled>
+        <NavLinkStyled to={url + '/Gryffindor'}></NavLinkStyled>
         <NavLinkStyled to={url + '/Hufflepuff'}>Hufflepuff</NavLinkStyled>
       </nav>
       <Switch>
