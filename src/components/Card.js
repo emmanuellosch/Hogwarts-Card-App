@@ -23,7 +23,7 @@ export default function Card({
         <p>{birthday}</p>
         <p>{eyes}</p>
         <p>{patronus}</p>
-        <button type="button" onClick={() => clickHandler(name)}>
+        <button type="button" onClick={() => clickHandler(name, bild)}>
           Like
         </button>
       </div>

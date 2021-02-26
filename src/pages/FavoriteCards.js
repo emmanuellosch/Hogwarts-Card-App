@@ -14,7 +14,10 @@ export default function FavoriteCards({ cards }) {
     <div>
       <h1>Favorite Characters</h1>
       {cards.map((card) => (
-        <div>{card}</div>
+        <div>
+          <div>{card.name}</div>
+          <img src={card.bild} />
+        </div>
       ))}
     </div>
   );

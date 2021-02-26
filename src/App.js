@@ -31,9 +31,12 @@ function App() {
     });
   }, []);
 
-  function onFavoriteClick(card) {
+  function onFavoriteClick(name, bild) {
     /* let neuesArray = [card, ...favoriteCards]; */
-    setFavoriteCards((favoriteCards) => [...favoriteCards, card]);
+    setFavoriteCards((favoriteCards) => [
+      ...favoriteCards,
+      { name: name, bild: bild },
+    ]);
   }
 
   return (
