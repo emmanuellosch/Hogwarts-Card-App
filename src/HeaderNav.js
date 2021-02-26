@@ -10,6 +10,7 @@ export default function HeaderNavigation() {
           Home
         </NavLinkStyled>
         <NavLinkStyled to="/Houses">Houses</NavLinkStyled>
+        <NavLinkStyled to="/FavoriteCards">Favorite Characters</NavLinkStyled>
       </nav>
     </header>
   );

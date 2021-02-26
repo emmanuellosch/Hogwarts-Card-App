@@ -16,17 +16,17 @@ export default function Houses({ cards }) {
       <nav>
         <NavLinkStyled to={url + '/Ravenclaw'}>Ravenclaw</NavLinkStyled>
         <NavLinkStyled to={url + '/Slytherin'}>Slytherin</NavLinkStyled>
-        <NavLinkStyled to={url + '/Gryiffindor'}>Gryffindor</NavLinkStyled>
+        <NavLinkStyled to={url + '/Gryffindor'}>Gryffindor</NavLinkStyled>
         <NavLinkStyled to={url + '/Hufflepuff'}>Hufflepuff</NavLinkStyled>
       </nav>
-      <switch>
+      <Switch>
         <Route exact path={path}>
           <h3>Please choose a house!</h3>
         </Route>
         <Route path={url + '/:houseName'}>
           <House cards={cards} />
         </Route>
-      </switch>
+      </Switch>
     </div>
   );
 }
