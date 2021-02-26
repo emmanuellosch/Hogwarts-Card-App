@@ -14,10 +14,10 @@ export default function Houses({ cards }) {
     <div>
       <h1>Houses</h1>
       <nav>
-        <NavLink to={url + '/Ravenclaw'}>Ravenclaw</NavLink>
-        <NavLink to={url + '/Slytherin'}>Slytherin</NavLink>
-        <NavLink to={url + '/Gryiffindor'}>Gryffindor</NavLink>
-        <NavLink to={url + '/Hufflepuff'}>Hufflepuff</NavLink>
+        <NavLinkStyled to={url + '/Ravenclaw'}>Ravenclaw</NavLinkStyled>
+        <NavLinkStyled to={url + '/Slytherin'}>Slytherin</NavLinkStyled>
+        <NavLinkStyled to={url + '/Gryiffindor'}>Gryffindor</NavLinkStyled>
+        <NavLinkStyled to={url + '/Hufflepuff'}>Hufflepuff</NavLinkStyled>
       </nav>
       <switch>
         <Route exact path={path}>
@@ -50,7 +50,10 @@ function House({ cards }) {
     </div>
   );
 }
-/* const NavLinkStyled = styled.NavLink`
+const NavLinkStyled = styled(NavLink)`
   background-color: hotpink;
+  margin-right: 0.8rem;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  text-decoration: none;
 `;
- */
