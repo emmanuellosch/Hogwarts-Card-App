@@ -1,4 +1,5 @@
 .card {
+  color: rgb(55, 17, 11);
   margin: 1.5rem;
   padding: 2rem;
   font-family: verdana;
@@ -17,15 +18,17 @@
   transition: transform 1s;
   backface-visibility: hidden;
   text-align: center;
+  border-radius: 3px;
 }
 
 .front {
-  background-color: lightgrey;
+  background-color: rgb(215, 135, 75);
 }
 
 .back {
   transform: rotateY(180deg);
-  background-color: hotpink;
+  background-color: rgb(55, 17, 11);
+  color: ivory;
 }
 .card:hover .front {
   transform: rotateY(180deg);

@@ -61,17 +61,19 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home />
-            {hogwartsCards.map((card) => (
-              <Card
-                name={card.name}
-                house={card.house}
-                bild={card.bild}
-                birthday={card.birthday}
-                eyes={card.eyes}
-                patronus={card.patronus}
-                clickHandler={onFavoriteClick}
-              />
-            ))}
+            <WrappContainer>
+              {hogwartsCards.map((card) => (
+                <Card
+                  name={card.name}
+                  house={card.house}
+                  bild={card.bild}
+                  birthday={card.birthday}
+                  eyes={card.eyes}
+                  patronus={card.patronus}
+                  clickHandler={onFavoriteClick}
+                />
+              ))}
+            </WrappContainer>
           </Route>
           <Route path="/Houses">
             <Houses cards={hogwartsCards} />
@@ -97,3 +99,8 @@ function App() {
 }
 
 export default App;
+
+const WrappContainer = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+`;

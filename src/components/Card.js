@@ -15,8 +15,8 @@ export default function Card({
     <div className="card">
       <div className="front">
         <h2>{name}</h2>
-        <h3>{house}</h3>
         <img src={bild} />
+        <h4>{house}</h4>
       </div>
       <div className="back">
         <h2>{name}</h2>
