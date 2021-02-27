@@ -14,7 +14,7 @@ import FavoriteCards from './pages/FavoriteCards';
 function App() {
   const Home = () => <h1>Home</h1>;
   const [hogwartsCards, setHogwartsCards] = useState([]);
-  const [favoriteCards, setFavoriteCards] = useState([]);
+  const [favoriteCards, setFavoriteCards] = useState(loadFromLocal() ?? []);
   console.log(favoriteCards);
 
   useEffect(() => {
@@ -30,6 +30,21 @@ function App() {
       setHogwartsCards(itemsFetchedFromAPI);
     });
   }, []);
+  //Speichern in Local Storage von Favorite Characters
+  function loadFromLocal(key = 'FavoriteCharactersList') {
+    try {
+      const storedItems = localStorage.getItem(key);
+      return JSON.parse(storedItems);
+    } catch (error) {
+      console.error('LocalStorage ist kaputt');
+    }
+  }
+  useEffect(() => {
+    localStorage.setItem(
+      'FavoriteCharactersList',
+      JSON.stringify(favoriteCards)
+    );
+  }, [favoriteCards]);
 
   function onFavoriteClick(name, bild) {
     /* let neuesArray = [card, ...favoriteCards]; */
